@@ -1,5 +1,10 @@
 pipeline {
-    agent { label 'JDK11' }
+    agent {
+  label 'JDK1.8'
+}
+    triggers {
+  pollSCM '* * * * *'
+}
     stages{
         stage('One'){ 
             steps{
