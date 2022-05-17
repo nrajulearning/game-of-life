@@ -9,6 +9,8 @@ pipeline {
         stage('One'){ 
             steps{
                  echo 'stage one'
+                 echo '$HOSTNAME'
+                 sh 'df -h'
             }
            
         }
