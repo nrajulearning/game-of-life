@@ -9,11 +9,9 @@ pipeline {
                 label 'JDK1.8'
             }
             steps{
-                 echo 'stage one'
-                 echo '$HOSTNAME'
-                 sh 'df -h'
-            }
-           steps{
+               echo 'stage one'
+               echo '$HOSTNAME'
+               sh 'cat /etc/*-release'
                sh 'mvn clean package'
            }
         }
@@ -22,11 +20,9 @@ pipeline {
                 label 'JDK11'
             }
             steps{
-                 echo 'stage Two'
-                 echo '$HOSTNAME'
-                 sh 'cat /etc/os-*'
-            }
-            steps{
+                echo 'stage Two'
+                echo '$HOSTNAME'
+                sh 'cat /etc/os-*'
                 sh 'mvn clean package'
             }
         }
