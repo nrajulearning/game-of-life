@@ -2,12 +2,15 @@ pipeline {
     agent { label 'JDK11' }
     stages{
         stage('One'){ 
-            echo 'stage one'
+            steps{
+                 echo 'stage one'
+            }
+           
         }
         stage('Two'){
-            echo 'Stage Two'
+            steps{
+                 echo 'stage Two'
+            }
         }
-
     }
-
 }
