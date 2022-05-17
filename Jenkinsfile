@@ -20,7 +20,7 @@ pipeline {
             }
             steps{
                  echo 'stage Two'
-                 echo '$HOSTS'
+                 sh 'set | grep -i hosts'
                  sh 'cat /etc/os-*'
             }
         }
