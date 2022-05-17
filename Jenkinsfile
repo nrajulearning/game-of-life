@@ -15,8 +15,13 @@ pipeline {
            
         }
         stage('Two'){
+            agent {
+                label 'JDK 11'
+            }
             steps{
                  echo 'stage Two'
+                 echo '$HOSTS'
+                 sh 'cat /etc/os-*'
             }
         }
     }
