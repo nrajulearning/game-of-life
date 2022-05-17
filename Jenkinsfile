@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Two'){
             agent {
-                label 'JDK 11'
+                label 'JDK11'
             }
             steps{
                  echo 'stage Two'
