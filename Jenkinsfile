@@ -1,18 +1,21 @@
 pipeline {
-    agent {
-  label 'JDK1.8'
-}
+    agent any
     triggers {
   pollSCM '* * * * *'
 }
     stages{
         stage('One'){ 
+            agent {
+                label 'JDK1.8'
+            }
             steps{
                  echo 'stage one'
                  echo '$HOSTNAME'
                  sh 'df -h'
             }
-           
+           steps{
+               sh 'mvn clean package'
+           }
         }
         stage('Two'){
             agent {
@@ -22,6 +25,9 @@ pipeline {
                  echo 'stage Two'
                  echo '$HOSTNAME'
                  sh 'cat /etc/os-*'
+            }
+            steps{
+                sh 'mvn clean package'
             }
         }
     }
